@@ -1,0 +1,49 @@
+name: 문서 배포
+
+on:
+  # "main" 브랜치를 베이스로 하는 PR 에서 워크플로우 작동
+  pull_request:
+    branches: [ "main" ]
+
+# GitHub Pages 에 배포하기 위한 GITHUB_TOKEN 권한 설정
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+# 동시성 배포 허용
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      # GitHub Pages 로 배포하기 위한 필수 설정
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: macos-13  #최신버전
+    steps:
+    - name: 체크아웃 🛎️
+      uses: actions/checkout@v3
+    - name: DocC 문서 빌드
+      run: |
+        xcodebuild docbuild -scheme PackageDocCExample \
+          -derivedDataPath /tmp/docbuild \
+          -destination 'generic/platform=iOS';
+        $(xcrun --find docc) process-archive \
+          transform-for-static-hosting /tmp/docbuild/Build/Products/Debug-iphoneos/PackageDocCExample.doccarchive \
+          --hosting-base-path package-docc-example \
+          --output-path docs;
+        echo "<script>window.location.href += \"/documentation/packagedoccexample\"</script>" > docs/index.html
+    - name: artifact 업로드
+      uses: actions/upload-pages-artifact@v1
+      with:
+        # docs 경로에 있는 것만 업로드
+        path: 'docs'
+    - name: GitHub Pages 에 배포
+      id: deployment
+      uses: actions/deploy-pages@v1
+
+
+
+      
