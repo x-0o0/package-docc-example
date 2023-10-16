@@ -1,8 +1,8 @@
 name: 문서 배포
 
 on:
-  # "main" 브랜치를 베이스로 하는 PR 에서 워크플로우 작동
-  pull_request:
+  # "main" 브랜치에 푸시할 때 마다 워크플로우 작동
+  push:
     branches: [ "main" ]
 
 # GitHub Pages 에 배포하기 위한 GITHUB_TOKEN 권한 설정
