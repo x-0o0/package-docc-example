@@ -25,6 +25,10 @@ jobs:
     steps:
     - name: 체크아웃 🛎️
       uses: actions/checkout@v3
+    - name: Setup Xcode version
+      uses: maxim-lobanov/setup-xcode@v1 # xcode 버전 설정을 위함
+      with:
+        xcode-version: '15.0'
     - name: DocC 문서 빌드
       run: |
         xcodebuild docbuild -scheme PackageDocCExample \
