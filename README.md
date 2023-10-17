@@ -147,3 +147,12 @@ $ swift package --allow-writing-to-directory {저장위치} \
 | `--output-path {저장위치}` | 문서 파일 저장 위치 |
 
 3. 커밋 후 푸시
+
+### 스크립트로 만들기
+
+`GENERATE_DOCS.sh` 참고
+
+```bash
+chmod +x ./GENERATE_DOCS.sh
+./GENERATE_DOCS.sh
+``` 
