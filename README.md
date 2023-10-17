@@ -19,7 +19,11 @@
 3. Documentation 섹션에서 Documentation Catolog 템플릿을 선택하고 Next 클릭
 4. 파일 이름 필요시 변경
 
-## GitHub Pages 배포하기
+## 깃헙 액션으로 GitHub Pages 배포하기
+
+### 배포 조건을 깃헙 액션으로 설정하기
+
+Settings > Pages > Build and deployment 에서 Source 를 GitHub Actions 로 변경
 
 ### 배포를 위한 깃헙토큰 권한 설정
 ```yml
@@ -95,8 +99,16 @@ Settings > Environment > GitHub Protection rule 가보면 main 으로 설정되�
 해당 규칙이 적용되지 않은 PR 브랜치에서는 배포가 불가능
 
 
-## docc-plugin
+## docc-plugin 으로 GitHub Pages 배포하기
 
+### 배포 조건을 브랜치로 설정하기
+
+1. Settings > Pages > Build and deployment
+2. Source 를 Deploy from a branch 로 변경
+3. Branch 에 main, /docs 로 선택
+4. Save 클릭
+
+### docc-plugin
 1. Package.swift 에 디펜던시 추가
 ```swift
 dependencies: [
