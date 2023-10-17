@@ -101,6 +101,10 @@ Settings > Environment > GitHub Protection rule 가보면 main 으로 설정되�
 
 ## docc-plugin 으로 GitHub Pages 배포하기
 
+> **참고**
+>
+> [애플 Swift DocC Plugin 공식 문서](https://apple.github.io/swift-docc-plugin/documentation/swiftdoccplugin/publishing-to-github-pages/)
+
 ### 배포 조건을 브랜치로 설정하기
 
 1. Settings > Pages > Build and deployment
