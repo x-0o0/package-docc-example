@@ -150,7 +150,7 @@ $ swift package --allow-writing-to-directory {저장위치} \
 
 ### 스크립트로 만들기
 
-`GENERATE_DOCS.sh` 참고
+[GENERATE_DOCS.sh](/GENERATE_DOCS.sh) 참고
 
 ```bash
 chmod +x ./GENERATE_DOCS.sh
