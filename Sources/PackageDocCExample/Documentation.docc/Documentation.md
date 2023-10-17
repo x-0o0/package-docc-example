@@ -19,6 +19,42 @@
 3. Documentation 섹션에서 Documentation Catolog 템플릿을 선택하고 Next 클릭
 4. 파일 이름 필요시 변경
 
+### docc-plugin
+
+1. Package.swift 에 디펜던시 추가
+```swift
+dependencies: [
+    .package(url: "https://github.com/apple/swift-docc-plugin", branch: "main"),
+],
+```
+
+2. 터미널에 docc-plugin 커멘드 사용
+
+```bash
+$ swift package --allow-writing-to-directory {저장위치} \
+    generate-documentation --target {타겟이름} \
+    --disable-indexing \
+    --transform-for-static-hosting \
+    --hosting-base-path {레포지토리-이름} \ 
+    --output-path {저장위치}
+```
+
+| 값 | 예시 |
+| --- | --- |
+| 저장위치 | `./docs` |
+| 타겟이름 | `PackageDocCExample` |
+| 레포지토리-이름 | `package-docc-example` |
+
+| 명령어 | 의미 |
+| `--allow-writing-to-directory {저장위치}` | 저장하고자 하는 경로에 대한 쓰기 권한 허용 |
+| `generate-documentation --target {타겟이름}` | 해당 타겟에 대한 문서 생성 |
+| `--disable-indexing` | 인덱싱 비활성화 |
+| `--transform-for-static-hosting` | 정적 호스팅을 위한 형태로 변형. `doccarchive` 가 아닌 css, html 파일이 생성됨 |
+| `--hosting-base-path {레포지토리-이름}` | 호스팅 경로 지정 |
+| `--output-path {저장위치}` | 문서 파일 저장 위치 |
+
+3. 커밋 후 푸시
+
 ## 시작하기
 
 ```swift
