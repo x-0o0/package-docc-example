@@ -3,7 +3,7 @@ name: 문서 배포
 on:
   # "main" 브랜치에 푸시할 때 마다 워크플로우 작동
   push:
-    branches: [ "develop" ] # TODO: 잠시 main 비활성화
+    branches: [ "main" ]
 
 # GitHub Pages 에 배포하기 위한 GITHUB_TOKEN 권한 설정
 permissions:

@@ -134,6 +134,7 @@ $ swift package --allow-writing-to-directory {저장위치} \
 | 레포지토리-이름 | `package-docc-example` |
 
 | 명령어 | 의미 |
+| --- | --- |
 | `--allow-writing-to-directory {저장위치}` | 저장하고자 하는 경로에 대한 쓰기 권한 허용 |
 | `generate-documentation --target {타겟이름}` | 해당 타겟에 대한 문서 생성 |
 | `--disable-indexing` | 인덱싱 비활성화 |
