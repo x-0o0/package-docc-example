@@ -55,6 +55,17 @@ $(xcrun --find docc) process-archive \
 echo "<script>window.location.href += \"/documentation/{타겟이름_소문자}\"</script>" > docs/index.html
 ```
 
+만약 docc-plugin 의존성이 추가되어 있는 경우,
+
+```yml
+swift package --allow-writing-to-directory {저장위치} \
+    generate-documentation --target {타겟이름} \
+    --disable-indexing \
+    --transform-for-static-hosting \
+    --hosting-base-path {레포지토리_이름} \ 
+    --output-path {저장위치}
+```
+
 ### Artifact 업로드
 
 ```yml
