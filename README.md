@@ -2,7 +2,7 @@
 
 스위프트 패키지 DocC 생성부터 배포까지의 예시
 
-[ENGLISH Ver.](/README_ENG.md)
+[👉ENGLISH Ver.](/README_ENG.md) This repository provides examples of DocC for Swift package, covering the process from creation to deployment
 
 ## Overview
 
