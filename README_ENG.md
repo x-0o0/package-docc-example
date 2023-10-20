@@ -1,6 +1,6 @@
 # The Examples of DocC for Swift Package
 
-This repository provides the examples of DocC for Swift package from creatiing to deploying
+This repository provides examples of DocC for Swift package, covering the process from creation to deployment
 
 ## Overview
 
@@ -12,19 +12,19 @@ This repository provides the examples of DocC for Swift package from creatiing t
 > For Swift packages, place the documentation catalog in the same folder as your library’s source files for DocC to associate the catalog with the library.
 
 Add DocC Catalogue by following the instructions:
-1. Go to Project Navigator in Xcode and Select Source/{TARGET_NAME} folder
-2. Right click > New File... > Open File Template Selector
-3. Go to Documentation Section, Select Documentation Catolog Template. Then, click Next
-4. Change file name if need
+1. Go to Project Navigator in Xcode and Select the Source/{TARGET_NAME} folder.
+2. Right click > New File... > Open File Template Selector.
+3. In the Documentation Section, select Documentation Catolog Template and click Next.
+4. Change the file name if necessary.
 
 ## Deploy to GitHub Pages via GitHub Actions
 
 ### Set Deployment Condition to GitHub Actions
 
-1. Go to Settings > Pages > Build and deployment
-2. Set Source to "GitHub Actions"
+1. Go to Settings > Pages > Build and deployment.
+2. Set Source to "GitHub Actions".
 
-### Set up GitHub Token permission for deployment
+### Configure GitHub Token permission for deployment
 ```yml
 # Set up GITHUB_TOKEN permission to deploy to GitHub Pages
 permissions:
@@ -33,7 +33,7 @@ permissions:
   id-token: write
 ```
 
-### 필수 설정
+### Mandatory settings
 ```yml
 environment:
   # Mandatory settings for GitHub Pages
@@ -41,7 +41,7 @@ environment:
   url: ${{ steps.deployment.outputs.page_url }}
 ```
 
-### 문서 빌드
+### Build documentation
 
 ```yml
 xcodebuild docbuild -scheme {TARGET_NAME} \
@@ -54,7 +54,7 @@ $(xcrun --find docc) process-archive \
 echo "<script>window.location.href += \"/documentation/{TARGET_NAME}\"</script>" > docs/index.html
 ```
 
-If you use docc-plugin,
+If you use `docc-plugin`:
 
 ```yml
 swift package --allow-writing-to-directory {OUTPUT_PATH} \
@@ -77,22 +77,22 @@ swift package --allow-writing-to-directory {OUTPUT_PATH} \
 
 ### Deploy to GitHub Pages
 ```
-- name: GitHub Pages 에 배포
+- name: Deploy to GitHub Pages
   id: deployment
   uses: actions/deploy-pages@v1
 ```
 
-### FAQ
+### Faced Issues
 
 #### Issue #1: Swift Package Compiler Version
 
-macos-latest doesn't have Xcode15 (the latest version of Xcode is 14.1).
+**Problem**
 
-**Resolve**
+`macos-latest` doesn't have Xcode15 (the latest version of Xcode is 14.1).
 
-Set up the version of...
-- macOS to **13**
-- xcode to **15**
+**Solution**
+
+Specify macOS to **13** and Xcode to **15**:
 
 ```yml
 jobs:
@@ -105,12 +105,11 @@ jobs:
       xcode-version: '15.0'
 ```
 
-#### Issue #2: The PR doesn't deploy even its base branch is "main"
+#### Issue #2: The PR Doesn't Deploy Even if Its Base Branch is "main"
 
 **Reason**
 When you go to Settings > Environment > GitHub Protection rule, it should be set to "main".
-Therefore, the production rule doesn't allow to the PR branch
-
+Therefore, the production rule doesn't allow the PR branch to be deployed.
 
 ## Deploy to GitHub Pages via docc-plugin
 
@@ -120,20 +119,20 @@ Therefore, the production rule doesn't allow to the PR branch
 
 ### Set Deployment Condition to Branch
 
-1. Settings > Pages > Build and deployment
-2. Set Source to "Deploy from a branch"
-3. Select "main", "/docs" as Branch
-4. Click Save
+1. Go to Settings > Pages > Build and deployment.
+2. Set Source to "Deploy from a branch".
+3. Select "main", "/docs" as "Branch".
+4. Click Save.
 
 ### docc-plugin
-1. Add dependency to Package.swift
+1. Add dependency to Package.swift:
 ```swift
 dependencies: [
     .package(url: "https://github.com/apple/swift-docc-plugin", branch: "main"),
 ],
 ```
 
-2. Use docc-plugin command in Terminal
+2. Use `docc-plugin` command in Terminal:
 
 ```bash
 $ swift package --allow-writing-to-directory {OUTPUT_PATH} \
@@ -163,7 +162,7 @@ $ swift package --allow-writing-to-directory {OUTPUT_PATH} \
 
 ### Create Script
 
-[GENERATE_DOCS.sh](/GENERATE_DOCS.sh) 참고
+Refer to [GENERATE_DOCS.sh](/GENERATE_DOCS.sh).
 
 ```bash
 chmod +x ./GENERATE_DOCS.sh
