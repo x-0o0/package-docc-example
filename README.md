@@ -4,6 +4,8 @@
 
 [👉ENGLISH Ver.](/README_ENG.md) This repository provides examples of DocC for Swift package, covering the process from creation to deployment
 
+[👉日本語版](/README_JP.md) Swift パッケージの DocC の作成からデプロイまでの例です。
+
 ## Overview
 
 ### 문서 카탈로그 생성 방법
