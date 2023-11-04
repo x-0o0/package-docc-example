@@ -1,6 +1,6 @@
 # `xcodebuild docbuild` 명령어로 문서 빌드 배포하기
 
-`xcodebuild docbuild` 로 doccarchive 파일 추출 및 정적 웹 호스팅을 위한 형태로 변형하는 과정을 담았습니다.
+`xcodebuild` 커맨드라인 도구(Command Line Tool)의 `docbuild` 명령어로 `.doccarchive` 파일 추출 및 정적 웹 호스팅을 위한 형태로 변형하는 과정.
 
 ## 1. 배경 및 목적
 
@@ -49,11 +49,11 @@ $(xcrun --find docc) process-archive \
 
 ### 2.3. 빌드 결과물 처리
 
-`/docs` 경로에 웹 호스팅이 가능한 파일들이 위치한 것을 알 수 있습니다. [방법1](#1-문서-아카이브-파일-생성-doccarchive) 과 [방법2](#2-정적-호스팅을-위한-형태로-변형-docs) 의 명령어들을 `.sh` 스크립트 파일로 저장해두면 GitHub Actions 로 배포<sup>[3](#footnote_3)</sup>할 때 용이합니다.
+`/docs` 경로에 웹 호스팅이 가능한 파일들이 위치한 것을 알 수 있습니다. [과정2.1](#21-문서-아카이브-파일-생성-doccarchive) 과 [과정2.2](#22-정적-호스팅을-위한-형태로-변형-docs) 의 명령어들을 `.sh` 스크립트 파일로 저장해두면 GitHub Actions 로 배포<sup>[3](#footnote_3)</sup>할 때 용이합니다.
 
 ## 3. 결론
 
-`xcodebuild` 커맨드라인도구에도 docc 에 대한 명령어들이 있어 문서를 빌드하고, 아카이브 파일을 정적 웹호스팅을 위한 형태로 변형할 수 있습니다.
+`xcodebuild` 커맨드라인 도구에도 docc 에 대한 명령어들이 있어 문서를 빌드하고, 아카이브 파일을 정적 웹호스팅을 위한 형태로 변형할 수 있습니다.
 
 `docc-plugin` 에서는 macOS로 고정되어 있는 빌드 대상을 변경할 수 없는 반면 `xcodebuild` 는 빌드 대상을 바꿀 수 있기 때문에 macOS 가 아닌 다른 플랫폼(예: iOS)만 지원하는 스위프트 패키지의 경우 `xcodebuild` 커맨드라인 도구를 사용하여 문서를 빌드할 수 있습니다.
 
