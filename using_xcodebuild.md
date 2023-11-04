@@ -22,7 +22,7 @@ xcodebuild docbuild -scheme BoxOffice \
 | --- | --- | --- |
 | `-scheme {스킴이름}` |  문서 빌드를 하고자하는 스킴 | `-scheme MyPackage` |
 | `-derivedDataPath {아카이브저장위치}` | 저장 위치. 필수는 아니지만 이 옵션을 포함하면 `.doccarchive` 번들을 찾을 때 용이. | `-derivedDataPath /tmp/docbuild` |
-| `-destination {플랫폼}` | 빌드 destination | `-destination 'generic/platform=iOS' |
+| `-destination {플랫폼}` | 빌드 destination | `-destination 'generic/platform=iOS'` |
 
 
 ### 2. 정적 호스팅을 위한 형태로 변형 (`/docs`)
@@ -39,7 +39,7 @@ $(xcrun --find docc) process-archive \
 | 옵션 | 설명 | 예시코드 |
 | --- | --- | --- |
 | `transform-for-static-hosting`<sup>[2](#footnote_2)</sup> | 호스팅 형태로 바꿀 `.doccarchive` 파일 위치 | `transform-for-static-hosting /tmp/docbuild/Build/Products/Debug-iphoneos/BoxOffice.doccarchive` |
-| `--hosting-base-path {호스팅경로}` | 호스팅할 주소의 base 경로 값. 깃헙페이지의 경우 레포지토리 이름. | --hosting-base-path my-repository-name \ |
+| `--hosting-base-path {호스팅경로}` | 호스팅할 주소의 base 경로 값. 깃헙페이지의 경우 레포지토리 이름. | `--hosting-base-path my-repository-name` |
 | `--output-path {결과물저장위치} | 결과물 저장 위치. (`/docs` 로 하는 것을 권장) | `--output-path ./docs` |
 
 ### 결과
